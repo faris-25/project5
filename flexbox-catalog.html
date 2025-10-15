@@ -11,6 +11,7 @@
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
             color: #f5f5f5;
+            scroll-behavior: smooth; /* Scroll halus */
         }
 
         header {
@@ -178,7 +179,7 @@
 
     <nav>
         <a href="#">Beranda</a>
-        <a href="#">Produk</a>
+        <a href="#produk">Produk</a>
         <a href="#">Promo</a>
         <a href="#">Tentang Kami</a>
         <a href="#">Kontak</a>
@@ -188,11 +189,11 @@
         <div class="sidebar">
             <h3>Kategori</h3>
             <ul>
-                <li>Elektronik</li>
-                <li>Komponen Komputer</li>
-                <li>Gaming Gear</li>
-                <li>Monitor</li>
-                <li>GPU & Hardware</li>
+                <li onclick="scrollToProduct('mouse')">Elektronik</li>
+                <li onclick="scrollToProduct('keyboard')">Komponen Komputer</li>
+                <li onclick="scrollToProduct('mouse')">Gaming Gear</li>
+                <li onclick="scrollToProduct('monitor')">Monitor</li>
+                <li onclick="scrollToProduct('gpu')">GPU & Hardware</li>
             </ul>
         </div>
 
@@ -202,46 +203,46 @@
         </div>
     </div>
 
-    <div class="container fade-in">
+    <div class="container fade-in" id="produk">
         <div class="content">
             <h2>Kategori Pilihan</h2>
             <div class="catalog-container">
-                <div class="product-card">
+                <div class="product-card" id="mouse">
                     <img src="/asset/mouse.jpg" alt="Mouse">
                     <h3>Mouse Logitech G Pro</h3>
                     <p>Mouse gaming wireless presisi tinggi dengan sensor HERO 25K.</p>
                     <button>Detail</button>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" id="monitor">
                     <img src="/asset/monitor.jpg" alt="Monitor">
                     <h3>Monitor ASUS ROG 27"</h3>
                     <p>Monitor gaming 165Hz QHD untuk pengalaman visual terbaik.</p>
                     <button>Detail</button>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" id="keyboard">
                     <img src="/asset/keyboard.jpg" alt="Keyboard">
                     <h3>Keyboard Mechanical RGB</h3>
                     <p>Switch blue clicky, lampu RGB dinamis, dan build premium.</p>
                     <button>Detail</button>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" id="case">
                     <img src="/asset/case.jpg" alt="Casing">
                     <h3>Casing NZXT H510 Elite</h3>
                     <p>Casing minimalis dengan panel tempered glass dan airflow optimal.</p>
                     <button>Detail</button>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" id="ram">
                     <img src="/asset/ram.jpg" alt="RAM">
                     <h3>RAM Corsair Vengeance 32GB</h3>
                     <p>Kecepatan tinggi DDR5 5600MHz, cocok untuk gaming berat.</p>
                     <button>Detail</button>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" id="gpu">
                     <img src="/asset/gpu.jpg" alt="GPU RTX 5060">
                     <h3>GPU RTX 5060</h3>
                     <p>Generasi terbaru dari NVIDIA, performa tinggi untuk rendering dan gaming 4K.</p>
@@ -268,6 +269,14 @@
         }
         window.addEventListener('scroll', handleScroll);
         handleScroll();
+
+        // Fungsi untuk scroll ke produk berdasarkan ID
+        function scrollToProduct(productId) {
+            const element = document.getElementById(productId);
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+        }
     </script>
 </body>
 </html>
